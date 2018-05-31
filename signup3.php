@@ -1,8 +1,10 @@
 <?php
 session_start();
+ require_once ('connect.php');
 
  if(isset($_SESSION['smsg'])){
 	echo $_SESSION['smsg'];
+  session_destroy();
 	}
 	unset($_SESSION['smsg']);
 	
@@ -10,6 +12,16 @@ session_start();
  echo $_SESSION['fmsg'];
  } 	
  unset($_SESSION['fmsg']);
+
+
+ $SelSql = "SELECT * FROM `allowed`";
+
+//echo $SelSql;exit;
+
+$ress = mysqli_query($connection, $SelSql);
+$r = mysqli_fetch_assoc($ress);{
+
+ 
  
 
 ?>
@@ -19,29 +31,53 @@ session_start();
 <head>
 <meta charset="utf-8">
 <title>Untitled Document</title>
+<script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 
 <body>
 <form method="post" action="process3.php">
 <table width="60%" border="1" cellspacing="10" cellpadding="10">
   <tr>
+    <?php if($r['pname']=="true"){ ?>
     <td><?php if(isset($_SESSION['pname'])){ echo $_SESSION['pname'];} ?></td>
+ <?php } ?>
+    <?php if($r['city']=="true"){ ?>
     <td><?php if(isset($_SESSION['city'])){ echo $_SESSION['city'];} ?></td>
+ <?php } ?>
   </tr>
   <tr>
+    <?php if($r['cat']=="true"){ ?>
     <td><?php if(isset($_SESSION['cat'])){ echo $_SESSION['cat'];} ?></td>
+ <?php } ?>
+    <?php if($r['sub_cat']=="true"){ ?>
     <td><?php if(isset($_SESSION['sub_cat'])){ echo $_SESSION['sub_cat'];} ?></td>
+ <?php } ?>
   </tr>
   <tr>
+    <?php if($r['fname']=="true"){ ?>
     <td><?php if(isset($_SESSION['fname'])){ echo $_SESSION['fname'];} ?></td>
+ <?php } ?>
+    <?php if($r['lname']=="true"){ ?>
     <td><?php if(isset($_SESSION['lname'])){ echo $_SESSION['lname'];} ?></td>
+ <?php } ?>
   </tr>
   <tr>
+    <?php if($r['email']=="true"){ ?>
     <td><?php if(isset($_SESSION['email'])){ echo $_SESSION['email'];} ?></td>
+ <?php } ?>
+    <?php if($r['phone']=="true"){ ?>
     <td><?php if(isset($_SESSION['phone'])){ echo $_SESSION['phone'];} ?></td>
+ <?php } ?>
   </tr>
   <tr>
-    <td colspan="2">&nbsp;</td>
+    <?php if($r['promocode']=="true"){ ?>
+    <td><?php if(isset($_SESSION['promo'])){ echo $_SESSION['promo'];} ?></td>
+     <?php } ?>
+    
+  </tr>
+  <?php } ?>
+  <tr>
+    <td colspan="2"><div class="g-recaptcha" data-sitekey="6LdrhVwUAAAAAAh36eH-_4jKoDw1K3XsXEiC3Sjd"></div></td>
   </tr>
   <tr>
     <td colspan="2"><input type="checkbox" name="checkbox" id="checkbox" onclick="myFunction();"><label for="checkbox">Checkbox </label>
@@ -50,7 +86,7 @@ session_start();
   <tr>
     <td colspan="2"><div align="center">
       <!--<input type="submit" id="myBtn"  name="Signup" value="Signup" style="width:50%;" readonly>-->
-      <button type="submit" id="myBtn"  name="Signup" value="Signup" disabled>Signup</button>
+      <input type="submit" id="myBtn"  name="Signup" value="Signup" disabled></input>
     </div></td>
   </tr>
 </table>
