@@ -2,24 +2,24 @@
 session_start();
 require_once ('connect.php');
 
-if ($_REQUEST['Update'] != "") {
+if ($_POST['Update'] != "") {
 	
 	
-$fname=mysql_escape_string($_REQUEST['fname']); 
-$lname=mysql_escape_string($_REQUEST["lname"]);
-$email=mysql_escape_string($_REQUEST["email"]);
-$phone=mysql_escape_string($_REQUEST["phone"]);
+$fname=mysql_escape_string($_POST['fname']); 
+$lname=mysql_escape_string($_POST["lname"]);
+$email=mysql_escape_string($_POST["email"]);
+$phone=mysql_escape_string($_POST["phone"]);
 
-$password=mysql_escape_string($_REQUEST["password"]);
-$cpassword=mysql_escape_string($_REQUEST["cpassword"]);
+$password=mysql_escape_string($_POST["password"]);
+$cpassword=mysql_escape_string($_POST["cpassword"]);
 
 
-$city=mysql_escape_string($_REQUEST["city"]);
-$cat=mysql_escape_string($_REQUEST["cat"]);
-$sub_cat=mysql_escape_string($_REQUEST["sub_cat"]);
+$city=mysql_escape_string($_POST["city"]);
+$cat=mysql_escape_string($_POST["cat"]);
+$sub_cat=mysql_escape_string($_POST["sub_cat"]);
 
-$pname=mysql_escape_string($_REQUEST["pname"]);
-$promo=mysql_escape_string($_REQUEST["promo"]);
+$pname=mysql_escape_string($_POST["pname"]);
+$promo=mysql_escape_string($_POST["promo"]);
 
 
 

@@ -2,7 +2,7 @@
 require_once ('connect.php');
   $a=$_POST['txt1']; 
 
-if(isset($_REQUEST) & !empty($_REQUEST)) {
+if(isset($_POST) & !empty($_POST)) {
 	
 	
 $ReadSql = "SELECT * FROM `cat` where cat='$a'";

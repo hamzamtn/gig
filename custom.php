@@ -41,8 +41,6 @@ session_start();
 
   
 
-  
-
     <td>Last Name:<select name="lname"  id="lname" style="width: 50%; margin-left:53px;" required>
       <option value="true">True</option>
       <option value="false">False</option>

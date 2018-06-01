@@ -2,11 +2,11 @@
 session_start();
 require_once ('connect.php');
 
-if ($_REQUEST['Signup'] != "") {
-	$_SESSION["fname"]=$_REQUEST['fname'];
-$_SESSION["lname"]=$_REQUEST['lname'];
+if ($_POST['Signup'] != "") {
+	$_SESSION["fname"]=$_POST['fname'];
+$_SESSION["lname"]=$_POST['lname'];
 
-$password=$_REQUEST['password'];
+$password=$_POST['password'];
 $password=md5($password);
 
 
@@ -14,18 +14,19 @@ $_SESSION["password"]=$password;
 
 
 
-$cpassword=$_REQUEST['cpassword'];
+$cpassword=$_POST['cpassword'];
 $cpassword=md5($cpassword);
 
 
 $_SESSION["cpassword"]=$cpassword;
 
-$_SESSION["phone"]=$_REQUEST['phone'];
-$_SESSION["city"]=$_REQUEST['city'];
-$_SESSION["cat"]=$_REQUEST['cat'];
-$_SESSION["promo"]=$_REQUEST['promo'];
+$_SESSION["phone"]=$_POST['phone'];
+$_SESSION["city"]=$_POST['city'];
+$_SESSION["cat"]=$_POST['cat'];
+$cat=$_SESSION["cat"];
+$_SESSION["promo"]=$_POST['promo'];
 
-$_SESSION["email"]=$_REQUEST['email'];
+$_SESSION["email"]=$_POST['email'];
 $email=$_SESSION["email"];
 
 
@@ -44,11 +45,11 @@ if(empty($r)){
 	
 
 
-if($password==$cpassword){
+if($password==$cpassword and $cat !="0" ){
 
 	header('Location: signup2.php');
 }else {
-
+$_SESSION["fmsg1"] = "please select one category";
 	header('Location: signup1.php');
 }
 

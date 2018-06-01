@@ -32,6 +32,8 @@ $r = mysqli_fetch_assoc($ress);{
 <meta charset="utf-8">
 <title>Untitled Document</title>
 <script src='https://www.google.com/recaptcha/api.js'></script>
+<h1>Signup Page</h1>
+
 </head>
 
 <body>
@@ -83,6 +85,7 @@ $r = mysqli_fetch_assoc($ress);{
     <td colspan="2"><input type="checkbox" name="checkbox" id="checkbox" onclick="myFunction();"><label for="checkbox">Checkbox </label>
     By entering information and clicking 'Start Now', you agree to the terms of GigMasters User Agreement and Privacy Policy.</td>
   </tr>
+
   <tr>
     <td colspan="2"><div align="center">
       <!--<input type="submit" id="myBtn"  name="Signup" value="Signup" style="width:50%;" readonly>-->
@@ -98,6 +101,8 @@ function myFunction() {
 	if (a==0) { document.getElementById("myBtn").disabled = false; a = 1;}
 	else {document.getElementById("myBtn").disabled = true; a = 0;}
 }
+
+
 </script>
 
 </body>

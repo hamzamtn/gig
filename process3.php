@@ -2,7 +2,7 @@
 session_start();
 require_once ('connect.php');
 
-if ($_REQUEST['Signup'] != "") {
+if ($_POST['Signup'] != "") {
 	
 	
 $fname=mysql_escape_string($_SESSION["fname"]); 

@@ -4,12 +4,12 @@
 
 <?php
 require_once ('connect.php');
-  $a=$_REQUEST['cat_id']; 
+  $a=$_POST['cat_id']; 
 
 $a=substr($a,4);
 
 
-if(isset($_REQUEST) & !empty($_REQUEST)) {
+if(isset($_POST) & !empty($_POST)) {
 	
 	
 $ReadSql = "SELECT * FROM `cat` where cat='$a'";
